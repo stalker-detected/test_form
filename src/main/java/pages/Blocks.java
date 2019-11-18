@@ -25,7 +25,6 @@ public class Blocks {
     private final String TEXT_INPUT_SEL = "[jsname=\"YPqjbf\"]";
     private final String INPUT_TITLE_SEL = ".freebirdFormviewerViewItemsItemItemTitle.exportItemTitle.freebirdCustomFont";
     private final String ERROR_TEXT_SEL = ("[jsname=\"XbIQze\"]");
-    private final String STAR_SEL = ".freebirdFormviewerViewItemsItemRequiredAsterisk";
     private final String CHECKBOX_ITEMS_SEL ="[jscontroller=\"EcW08c\"]";
     private final String CHECKBOX_INPUT_SEL ="[jsname=\"ekGZBc\"]";
 
@@ -69,12 +68,9 @@ public class Blocks {
         return getElementText(By.cssSelector(BLOCKS_SEL+ERROR_TEXT_SEL));
     }
 
-    public Boolean starIsDisplayed(){
-        return getDriver().findElement(By.cssSelector(BLOCKS_SEL+STAR_SEL)).isDisplayed();
+    //отримати текст в текстових полях
+    public String getInputText(){
+        return getDriver().findElement(By.cssSelector(BLOCKS_SEL+TEXT_INPUT_SEL)).getAttribute("data-initial-value");
     }
-
-
-
-
 
 }
