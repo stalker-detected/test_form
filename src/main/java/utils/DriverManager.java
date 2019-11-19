@@ -4,23 +4,10 @@ import io.github.bonigarcia.wdm.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.ie.InternetExplorerOptions;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.opera.OperaOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
 import java.net.*;
-import java.util.HashMap;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static utils.PropertiesLoader.getProp;
@@ -29,8 +16,8 @@ public class DriverManager {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
-    private static String browserName = System.getProperty("browser");
-    private static String browserType = System.getProperty("driverType");
+    private static String browserName = PropertiesLoader.getProp("browser");
+    private static String browserType = PropertiesLoader.getProp("driverType");
 
     public static WebDriver getDriver() {
         if (driver.get() == null)
@@ -72,11 +59,6 @@ public class DriverManager {
                     chromeOptions.addArguments("start-maximized");
 
                     return new ChromeDriver(chromeOptions);
-
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    return new FirefoxDriver(firefoxOptions);
 
             }
             return new ChromeDriver();

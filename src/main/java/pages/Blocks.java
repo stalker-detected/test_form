@@ -5,8 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static pages.BasePO.clickElement;
-import static pages.BasePO.getElementText;
+import static pages.BasePO.*;
 import static utils.DriverManager.getDriver;
 
 public class Blocks {
@@ -65,6 +64,11 @@ public class Blocks {
     }
 
     public String getErrorText(){
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return getElementText(By.cssSelector(BLOCKS_SEL+ERROR_TEXT_SEL));
     }
 

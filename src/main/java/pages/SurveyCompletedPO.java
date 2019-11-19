@@ -9,6 +9,7 @@ public class SurveyCompletedPO extends BasePO {
 
     private final By ASK_AGAIN_SEL = By.cssSelector(".freebirdFormviewerViewResponseLinksContainer a");
 
+    //клікути на "Отправить ещё один ответ"
     public void clickAskAgain(){
         clickElement(ASK_AGAIN_SEL);
     }

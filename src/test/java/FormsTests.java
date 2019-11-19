@@ -95,7 +95,7 @@ public class FormsTests extends BaseTest {
         System.out.println(email);
         testForm.getBlock(1).setText(email);
         testForm.submit();
-        assertTrue(testForm.getBlock(1).getErrorText().contains(incorrect_email));
+        assertTrue(testForm.getBlock(1).getErrorText().contains(incorrect_email),"валідатор емейла пропустив невалідну пошту");
         acceptAlert();
     }
 
