@@ -21,10 +21,6 @@ public class FormsTests extends BaseTest {
     public void enterNothing(){
         testForm.submit();
         assertTrue(testForm.getBlock(1).getErrorText().contains(mandatory_question));
-        assertTrue(testForm.getBlock(2).getErrorText().contains(mandatory_question));
-        assertTrue(testForm.getBlock(3).getErrorText().contains(mandatory_question));
-        assertTrue(testForm.getBlock(4).getErrorText().contains(mandatory_question));
-
     }
 
     @Test

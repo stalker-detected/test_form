@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -21,9 +22,9 @@ public class Blocks {
 
 
 
-    private final String TEXT_INPUT_SEL = "[jsname=\"YPqjbf\"]";
-    private final String INPUT_TITLE_SEL = ".freebirdFormviewerViewItemsItemItemTitle.exportItemTitle.freebirdCustomFont";
-    private final String ERROR_TEXT_SEL = ("[jsname=\"XbIQze\"]");
+    private final String TEXT_INPUT_SEL = "input[jsname=\"YPqjbf\"], textarea";
+    private final String INPUT_TITLE_SEL = ".freebirdFormviewerComponentsQuestionBaseTitle.exportItemTitle.freebirdCustomFont";
+    private final String ERROR_TEXT_SEL = ("[jsname=\"Rfh2Tc\"]");
     private final String CHECKBOX_ITEMS_SEL ="[jscontroller=\"EcW08c\"]";
     private final String CHECKBOX_INPUT_SEL ="[jsname=\"ekGZBc\"]";
 
@@ -42,6 +43,9 @@ public class Blocks {
     public void clearBlock(){
         switch (index){
             case 1:
+                getDriver().findElement(By.cssSelector(BLOCKS_SEL+TEXT_INPUT_SEL)).sendKeys(Keys.chord(Keys.CONTROL, "a"));
+                getDriver().findElement(By.cssSelector(BLOCKS_SEL+TEXT_INPUT_SEL)).sendKeys(Keys.chord(Keys.BACK_SPACE));
+                getDriver().findElement(By.cssSelector(BLOCKS_SEL+INPUT_TITLE_SEL)).click();
             case 3:
             case 2:
                 getDriver().findElement(By.cssSelector(BLOCKS_SEL+TEXT_INPUT_SEL)).clear();
